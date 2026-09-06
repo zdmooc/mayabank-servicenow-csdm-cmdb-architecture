@@ -1,81 +1,77 @@
 # MayaBank — ServiceNow CSDM / CMDB / ITOM Architecture
 
-Référentiel d'apprentissage et de démonstration pour construire progressivement un niveau **Architecte Solution — ServiceNow CSDM / CMDB / ITOM — OpenShift / Azure**.
+Référentiel professionnel et laboratoire différé pour construire un niveau **Architecte Solution — ServiceNow CSDM / CMDB / ITOM — OpenShift / Azure**.
 
-Le dépôt s'appuie sur une banque fictive, **MayaBank**, pour relier architecture métier, architecture applicative, CSDM, CMDB, IRE, Discovery, Service Mapping, ITOM, ITSM et intégrations Cloud/OpenShift.
+> État : **V1 complète**. Les chapitres d’architecture sont documentés. Les labs nécessitant une PDI, Discovery, Service Mapping, Azure ou OpenShift sont préparés et marqués `À EXÉCUTER` jusqu’à exécution réelle.
 
-## Objectif
+## Chaîne cible
 
-Être capable de concevoir et d'expliquer de bout en bout :
-
-```text
-Métier
-  ↓
-Business Capability
-  ↓
-Business Application
-  ↓
-Service Instance
-  ↓
-Technology Management Service
-  ↓
-Infrastructure
-  ↓
-OpenShift / Kubernetes / Azure / AWS / VM / DB / Network
-  ↓
-CMDB
+```mermaid
+flowchart TD
+  M[Métier] --> BC[Business Capability]
+  BC --> BA[Business Application]
+  BA --> SI[Service Instance]
+  SI --> TMS[Technology Management Service]
+  TMS --> INFRA[Infrastructure CIs]
+  INFRA --> CLOUD[OpenShift / Azure / AWS / VM / DB / Network]
+  CLOUD --> CMDB[CMDB]
 ```
 
-et la chaîne de population/gouvernance :
+Population et gouvernance :
 
-```text
-Sources externes
-  ↓
-Discovery / Service Graph / IntegrationHub ETL / REST
-  ↓
-IRE
-  ↓
-CMDB
-  ↓
-CSDM
-  ↓
-Service Mapping
-  ↓
-ITOM / ITSM / EA
+```mermaid
+flowchart LR
+  SRC[Sources externes] --> ING[Discovery / Service Graph / ETL / REST]
+  ING --> IRE[IRE]
+  IRE --> CMDB[CMDB]
+  CMDB --> CSDM[CSDM]
+  CSDM --> SM[Service Mapping]
+  SM --> OPS[ITOM / ITSM / EA]
 ```
 
-## Roadmap
+## Parcours
 
-Le cadrage initial complet est disponible ici :
+1. [Roadmap](00-roadmap/README.md)
+2. [ServiceNow Foundations](01-servicenow-foundations/README.md)
+3. [CMDB](02-cmdb/README.md)
+4. [CSDM 5](03-csdm/README.md)
+5. [IRE](04-ire/README.md)
+6. [Discovery](05-discovery/README.md)
+7. [Service Mapping](06-service-mapping/README.md)
+8. [CMDB Health](07-cmdb-health/README.md)
+9. [IntegrationHub ETL / Service Graph](08-integrationhub-etl/README.md)
+10. [REST / IRE API](09-rest-api/README.md)
+11. [ITOM](10-itom/README.md)
+12. [Azure](11-azure/README.md)
+13. [OpenShift](12-openshift/README.md)
+14. [Enterprise Architecture](13-enterprise-architecture/README.md)
+15. [Security](14-security/README.md)
+16. [Governance](15-governance/README.md)
+17. [ADR](16-architecture-decisions/README.md)
+18. [MayaBank POC](17-mayabank-poc/README.md)
+19. [Interview preparation](18-interview-preparation/README.md)
+20. [Labs à exécuter](labs/README.md)
 
-- [Carte des compétences, gaps, parcours, POC et certifications](00-roadmap/01-skill-map-and-learning-path.md)
+## Terminologie CSDM 5
 
-## Principes de travail
+- **Service Instance** : terme CSDM v5 ; appelé *Application Service* avant CSDM v5.
+- **Technology Management Service** : anciennement *Technical Service*.
+- Les deux vocabulaires sont conservés dans le dépôt pour être à l’aise avec les environnements existants.
 
-Chaque étape du parcours doit suivre la même méthode :
+## Règle d’architecture
 
-1. Concept
-2. Explication simple
-3. Architecture
-4. Exemple MayaBank
-5. Manipulation ServiceNow
-6. Vérification
-7. Questions d'entretien
-8. Documentation GitHub
-9. Commit
-10. Validation avant l'étape suivante
+Aucun CI n’est ajouté « parce qu’on peut ». Chaque objet doit avoir un usage opérationnel ou de gouvernance, un propriétaire, une source, une règle d’identification, un cycle de vie et des relations justifiables.
 
-## Positionnement professionnel visé
+## Méthode des labs
 
-**Architecte Solution — ServiceNow CSDM / CMDB / ITOM — OpenShift / Azure**
+`Concept → Architecture → MayaBank → Manipulation → Vérification → Questions d’entretien → Documentation → Commit → Validation`.
 
-Le dépôt doit démontrer des compétences réelles et vérifiables par des architectures, POC, scripts, ADR, modèles de données, mappings et dossiers d'architecture, sans prétendre à une expérience projet ServiceNow non encore acquise.
+## Références officielles
 
-## Références de terminologie
+- CSDM : https://www.servicenow.com/docs/r/servicenow-platform/common-service-data-model-csdm/csdm-term-definitions.html
+- IRE : https://www.servicenow.com/docs/r/servicenow-platform/configuration-management-database-cmdb/c_CMDBIdentifyandReconcile.html
+- Service Instances : https://www.servicenow.com/docs/r/servicenow-platform/configuration-management-database-cmdb/application-services.html
 
-Le dépôt utilise la terminologie **CSDM 5** tout en conservant les anciens termes entre parenthèses lorsqu'ils restent courants en mission :
+## Positionnement honnête
 
-- **Service Instance** — anciennement *Application Service* avant CSDM v5.
-- **Technology Management Service** — terminologie actuelle pour les services technologiques gérés.
-
-Références principales : documentation ServiceNow officielle, ServiceNow University et documentation CSDM/CMDB/IRE de la release courante.
+Ce dépôt démontre une capacité de conception, de POC et de raisonnement d’architecture. Il ne remplace pas une expérience projet ServiceNow de plusieurs années et ne doit jamais être présenté comme telle.
