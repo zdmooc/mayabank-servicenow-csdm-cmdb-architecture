@@ -1,0 +1,10 @@
+flowchart TD
+  M[Business] --> C[Business Capability]
+  C --> BA[Business Application]
+  BA --> SI[Service Instance]
+  SI --> TMS[Technology Management Service]
+  SI --> CI[Infrastructure CIs]
+  SRC[Azure / OpenShift / Discovery / APIs] --> IRE[IRE]
+  IRE --> CI
+  CI --> SM[Service Mapping]
+  SM --> ITOM[ITOM / ITSM]

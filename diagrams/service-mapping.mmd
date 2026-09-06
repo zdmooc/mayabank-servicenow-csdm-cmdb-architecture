@@ -1,0 +1,7 @@
+flowchart TD
+  SI[Payment Hub PROD] --> GW[API Gateway]
+  GW --> API[Payment API]
+  API --> K[Kafka]
+  API --> DB[Database]
+  K --> F[Fraud Engine]
+  API --> OCP[OpenShift]

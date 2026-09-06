@@ -1,0 +1,8 @@
+flowchart LR
+  S1[Azure] --> N[Normalize]
+  S2[Discovery] --> N
+  S3[OpenShift] --> N
+  N --> ID[Identification]
+  ID --> REC[Reconciliation]
+  REC --> CMDB[CMDB]
+  CMDB --> H[Health / Governance]

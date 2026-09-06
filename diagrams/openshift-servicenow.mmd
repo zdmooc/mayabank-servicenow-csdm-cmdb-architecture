@@ -1,0 +1,7 @@
+flowchart LR
+  OCP[OpenShift API] --> COL[Python Collector]
+  COL --> MAP[Mapping + filtering]
+  MAP --> REST[ServiceNow IRE REST]
+  REST --> IRE[IRE]
+  IRE --> CMDB[CMDB]
+  CMDB --> SI[Payment Hub PROD]

@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "className": "cmdb_ci_server",
+      "values": {
+        "name": "mayabank-lab-server01",
+        "serial_number": "MAYA-LAB-0001"
+      },
+      "sys_object_source_info": {
+        "source_name": "MAYABANK_LAB",
+        "source_native_key": "server:MAYA-LAB-0001"
+      }
+    }
+  ]
+}
