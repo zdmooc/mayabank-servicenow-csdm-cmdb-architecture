@@ -12,5 +12,7 @@
 | LAB-08 | OpenShift → ServiceNow | À EXÉCUTER |
 | LAB-09 | Azure → ServiceNow | À EXÉCUTER |
 | LAB-10 | CMDB Health + gouvernance | À EXÉCUTER |
+| LAB-11 | ITSM + impact analysis | À EXÉCUTER |
+| LAB-12 | Intégration entreprise / event-driven | À EXÉCUTER |
 
 Ne jamais changer le statut en `VALIDÉ` sans preuve d’exécution : capture, sortie API, sys_id, export ou résultat reproductible.

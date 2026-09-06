@@ -16,6 +16,16 @@ Copier `.env.example` vers `.env` puis renseigner localement.
 - `servicenow_client.py` : client REST minimal ;
 - `ire_upsert_example.py` : dry-run puis upsert IRE ;
 - `openshift_inventory.py` : inventaire OpenShift via `oc` ;
+- `openshift_normalize.py` : normalisation neutre sans inventer de classes ServiceNow ;
+- `validate_no_secrets.py` : contrôle simple avant commit ;
 - `sample_ire_payload.json` : payload pédagogique.
 
-Toujours commencer par l’endpoint IRE `/query` pour simuler avant commit lorsque pertinent.
+## Séquence OpenShift
+```bash
+python scripts/openshift_inventory.py
+python scripts/openshift_normalize.py
+```
+
+Le mapping vers des classes ServiceNow réelles se fait seulement après vérification sur la PDI/release.
+
+Pour IRE, commencer par `/api/now/identifyreconcile/query` pour simuler avant commit lorsque pertinent.
