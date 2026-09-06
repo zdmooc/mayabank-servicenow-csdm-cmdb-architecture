@@ -1,0 +1,9 @@
+flowchart TD
+  DOM[Payments Domain] --> CAP[Execute Payment]
+  CAP --> BA[Payment Hub]
+  BA --> PROD[Payment Hub PROD]
+  BA --> PRE[Payment Hub PREPROD]
+  PROD --> BS[Instant Payment Service]
+  PROD --> OCP[OpenShift Platform Service]
+  PROD --> KAF[Kafka Messaging Service]
+  PROD --> DB[Database Service]
